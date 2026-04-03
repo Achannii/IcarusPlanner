@@ -22,6 +22,9 @@ interface CategoryRibbonProps {
     setSelectedTree: (tree: string | null) => void;
 }
 
+type CreatureCategory = Categories.Mounts | Categories.Pets | Categories.Livestock;
+type TreeKey = keyof typeof Trees;
+
 const PLAYER_CATEGORY_ORDER: Categories[] = [
     Categories.Survival,
     Categories.Adventure,
@@ -30,7 +33,7 @@ const PLAYER_CATEGORY_ORDER: Categories[] = [
     Categories.Solo,
 ];
 
-const CREATURE_CATEGORY_ORDER: Categories[] = [
+const CREATURE_CATEGORY_ORDER: CreatureCategory[] = [
     Categories.Mounts,
     Categories.Pets,
     Categories.Livestock,
@@ -68,7 +71,7 @@ export default function CategoryRibbon({
     };
 
     const handleCreatureChange =
-        (category: Categories.Mounts | Categories.Pets | Categories.Livestock) =>
+        (category: CreatureCategory) =>
         (event: SelectChangeEvent<string>) => {
             const tree = event.target.value;
 
@@ -131,10 +134,10 @@ export default function CategoryRibbon({
 
             <Stack direction="row" spacing={1.5} flexWrap="wrap" useFlexGap justifyContent="center">
                 {CREATURE_CATEGORY_ORDER.map(category => {
-                    const options = CREATURE_CATEGORY_OPTIONS[category];
+                    const options = CREATURE_CATEGORY_OPTIONS[category] as TreeKey[];
                     const isActive = selectedCategory === category;
                     const selectValue =
-                        isActive && selectedTree && options.includes(selectedTree as keyof typeof Trees)
+                        isActive && selectedTree && options.includes(selectedTree as TreeKey)
                             ? selectedTree
                             : '';
 
@@ -172,7 +175,7 @@ export default function CategoryRibbon({
                                 displayEmpty={false}
                                 onChange={handleCreatureChange(category)}
                             >
-                                {options.map(treeKey => (
+                                {options.map((treeKey: TreeKey) => (
                                     <MenuItem key={treeKey} value={treeKey}>
                                         {Trees[treeKey].name}
                                     </MenuItem>
