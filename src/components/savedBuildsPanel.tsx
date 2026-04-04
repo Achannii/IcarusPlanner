@@ -28,8 +28,8 @@ import {
     type SavedBuild,
 } from '../utils/saveSystem.ts';
 import {
+    buildShareUrl,
     calculatePointsSpent,
-    exportToQueryParam,
     isVersionMismatch,
 } from '../utils/exportImport';
 import { DEFAULT_CHARACTER_LEVEL } from '../data/points.ts';
@@ -174,7 +174,7 @@ export default function SavedBuildsPanel({
 
     const handleShareClick = async (build: SavedBuild) => {
         try {
-            const encoded = exportToQueryParam(
+            const url = buildShareUrl(
                 build.data.talentPoints,
                 'full',
                 {
@@ -183,7 +183,6 @@ export default function SavedBuildsPanel({
                 }
             );
 
-            const url = `${window.location.origin}${window.location.pathname}?build=${encoded}`;
             await navigator.clipboard.writeText(url);
             snackbar.setMessage(`Share URL copied for: ${build.name}`);
             snackbar.setOpen(true);

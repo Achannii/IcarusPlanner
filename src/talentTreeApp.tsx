@@ -25,9 +25,9 @@ import {
 } from "./data/points.ts";
 import InfoDialog from './components/infoDialog.tsx';
 import {
+    buildShareUrl,
     calculatePointsSpent,
-    exportToQueryParam,
-    importFromQueryParam,
+    importFromUrlSearch,
     isVersionMismatch
 } from './utils/exportImport';
 import './talentTree.css';
@@ -143,20 +143,16 @@ export default function TalentTreeApp() {
     const clearGuidance = () => setGuidanceState(null);
 
     useEffect(() => {
-        const buildParam = new URLSearchParams(window.location.search).get('build');
-        if (buildParam) {
-            const imported = importFromQueryParam(buildParam);
-            if (imported) {
-                if (isVersionMismatch(imported.gameVersion)) {
-                    setSnackbarMessage("Version mismatch. We'll match what we can, but review your Trees.");
-
-                }
-
-                setTalentPoints(imported.talentPoints);
-                setTalentPointsSpent(calculatePointsSpent(imported.talentPoints));
-                setCharacterLevel(clampCharacterLevel(imported.characterLevel ?? DEFAULT_CHARACTER_LEVEL));
-                setSelectedBonusTalents(imported.selectedBonusTalents ?? {});
+        const imported = importFromUrlSearch(window.location.search);
+        if (imported) {
+            if (isVersionMismatch(imported.gameVersion)) {
+                setSnackbarMessage("Version mismatch. We'll match what we can, but review your Trees.");
             }
+
+            setTalentPoints(imported.talentPoints);
+            setTalentPointsSpent(calculatePointsSpent(imported.talentPoints));
+            setCharacterLevel(clampCharacterLevel(imported.characterLevel ?? DEFAULT_CHARACTER_LEVEL));
+            setSelectedBonusTalents(imported.selectedBonusTalents ?? {});
         }
 
         hasImportedRef.current = true;
@@ -168,9 +164,11 @@ export default function TalentTreeApp() {
         const hasPoints = Object.values(talentPoints).some(tree =>
             Object.values(tree).some(points => points > 0)
         );
+        const hasBonuses = Object.values(selectedBonusTalents).some(Boolean);
+        const hasNonDefaultLevel = characterLevel !== DEFAULT_CHARACTER_LEVEL;
 
-        if (hasPoints) {
-            const param = exportToQueryParam(
+        if (hasPoints || hasBonuses || hasNonDefaultLevel) {
+            const newUrl = buildShareUrl(
                 talentPoints,
                 'full',
                 {
@@ -178,8 +176,6 @@ export default function TalentTreeApp() {
                     selectedBonusTalents,
                 }
             );
-
-            const newUrl = `${window.location.pathname}?build=${param}`;
             window.history.replaceState({}, '', newUrl);
         } else {
             window.history.replaceState({}, '', window.location.pathname);

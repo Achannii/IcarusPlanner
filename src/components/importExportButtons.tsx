@@ -9,8 +9,8 @@ import {
 } from '@mui/material';
 import { Download, Upload, Save } from '@mui/icons-material';
 import {
+    buildShareUrl,
     exportToJson,
-    exportToQueryParam,
     ExportedTalentState,
     calculatePointsSpent,
 } from '../utils/exportImport';
@@ -63,7 +63,7 @@ export default function ImportExportButtons({
     onOpenSaveDialog,
 }: ImportExportProps) {
     const handleCopyURL = () => {
-        const encoded = exportToQueryParam(
+        const url = buildShareUrl(
             talentPoints,
             'full',
             {
@@ -71,7 +71,6 @@ export default function ImportExportButtons({
                 selectedBonusTalents,
             }
         );
-        const url = `${window.location.origin}${window.location.pathname}?build=${encoded}`;
         navigator.clipboard.writeText(url);
         snackbar.setMessage('Build URL copied to clipboard!');
         snackbar.setOpen(true);
