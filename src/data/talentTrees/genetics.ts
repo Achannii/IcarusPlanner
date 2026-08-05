@@ -13,7 +13,7 @@ export const geneticsTree = {
                 [{ value: 10, desc: "+{0}% Tamed Creature Gestation Speed", category: "Genetics" }],
                 [{ value: 25, desc: "+{0}% Tamed Creature Gestation Speed", category: "Genetics" }],
             ],
-            position: [0.0, 2.0],
+            position: [0.0, 1.0],
             imageName: "Genetics/T_Talent_Genetic_RapidBreeder",
         },
         {
@@ -53,40 +53,40 @@ export const geneticsTree = {
                 [{ value: 10, desc: "+{0}% Fertilization Recovery Speed", category: "Genetics" }],
                 [{ value: 25, desc: "+{0}% Fertilization Recovery Speed", category: "Genetics" }],
             ],
-            position: [1.5, 1.0],
+            position: [1.5, 0.0],
             imageName: "Genetics/T_Talent_Genetic_BounceBack",
         },
         {
             name: "Hormones",
             description: "During Gestation, Creatures gain Increased Damage Resistance",
             rank: 1,
-            prerequisites: ["Bounce Back"],
+            prerequisites: ["Rapid Breeder"],
             benefits: [
                 [{ value: 1, desc: "Creatures gain Increased Damage Resistance During Gestation", category: "Genetics" }],
             ],
-            position: [3.0, 1.0],
+            position: [3.0, 0.0],
             imageName: "Genetics/T_Talent_Genetic_Hormones",
         },
         {
             name: "Mother's Care",
             description: "Mothers will Provide Resistances and Buffs to Nearby Juveniles after Birth",
             rank: 1,
-            prerequisites: ["Hormones"],
+            prerequisites: ["Rapid Breeder"],
             benefits: [
                 [{ value: 1, desc: "Mothers Provide Resistances and Buffs to Nearby Juveniles After Birth", category: "Flag" }],
             ],
-            position: [5.0, 1.0],
+            position: [5.0, 0.0],
             imageName: "Genetics/T_Talent_Genetic_MothersCare",
         },
         {
             name: "Father's Strength",
             description: "Fathers gain Strength and Speed after Fertilization",
             rank: 1,
-            prerequisites: ["Mother's Care"],
+            prerequisites: ["Rapid Breeder"],
             benefits: [
                 [{ value: 1, desc: "Fathers gain Strength and Speed after Fertilization", category: "Flag" }],
             ],
-            position: [6.5, 1.0],
+            position: [6.5, 0.0],
             imageName: "Genetics/T_Talent_Genetic_FathersStrength",
         },
 
@@ -174,7 +174,7 @@ export const geneticsTree = {
             name: "Seeing Double",
             description: "Chance for Tamed Creatures to Birth Twins",
             rank: 4,
-            prerequisites: ["Father's Strength"],
+            prerequisites: ["Rapid Breeder"],
             benefits: [
                 [{ value: 15, desc: "+{0}% Chance for Tamed Creatures to Birth Twins", category: "Genetics" }],
                 [{ value: 30, desc: "+{0}% Chance for Tamed Creatures to Birth Twins", category: "Genetics" }],
@@ -211,10 +211,12 @@ export const geneticsTree = {
         { start: "Rapid Breeder", path: [[0.0, 3.5]], end: "Guided Growth" },
         { start: "Beast Whisperer", path: [[0.0, 3.5]], end: "Guided Growth" },
 
-        { start: "Rapid Breeder", path: [[0.0, 1.0]], end: "Bounce Back" },
-        { start: "Bounce Back", end: "Hormones" },
-        { start: "Hormones", end: "Mother's Care" },
-        { start: "Mother's Care", end: "Father's Strength" },
+        // Main genetics trunk with independent branch talents, matching the in-game layout.
+        { start: "Rapid Breeder", end: "Seeing Double" },
+        { start: "Rapid Breeder", path: [[1.5, 1.0]], end: "Bounce Back" },
+        { start: "Rapid Breeder", path: [[3.0, 1.0]], end: "Hormones" },
+        { start: "Rapid Breeder", path: [[5.0, 1.0]], end: "Mother's Care" },
+        { start: "Rapid Breeder", path: [[6.5, 1.0]], end: "Father's Strength" },
 
         { start: "Guided Growth", path: [[3.5, 3.5]], end: "Wildcard" },
         { start: "Guided Growth", path: [[3.5, 3.5]], end: "Visual Anomaly" },
@@ -224,7 +226,6 @@ export const geneticsTree = {
         { start: "Beast Whisperer", path: [[0.0, 6.0]], end: "Ranger's Sense" },
         { start: "Ranger's Sense", end: "Hunter's Eye" },
 
-        { start: "Father's Strength", path: [[8.0, 1.0]], end: "Seeing Double" },
         { start: "Genetic Volatility", path: [[5.5, 3.5]], end: "Forced Evolution" },
         { start: "Prime Variants", path: [[5.5, 3.5]], end: "Forced Evolution" },
         { start: "Hunter's Eye", path: [[8.0, 6.0]], end: "Scout's Intuition" },
