@@ -518,7 +518,7 @@ export default function TalentTreeApp() {
 
                             <Button
                                 component="a"
-                                href="https://discord.gg/gSKwWDPj"
+                                href="https://discord.com/invite/surviveicarus"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 variant="outlined"

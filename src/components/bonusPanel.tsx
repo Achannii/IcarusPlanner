@@ -154,7 +154,7 @@ export default function BonusPanel({
             sx={{
                 width: 400,
                 minWidth: 400,
-                height: 220,
+                height: 260,
                 border: '1px solid #444',
                 borderRadius: 1.5,
                 backgroundColor: '#1c1c1c',
