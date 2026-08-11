@@ -20,7 +20,19 @@ export default function InfoDialog({ open, onClose }: { open: boolean; onClose: 
                         },
                     }}
                 >
-                    <ReactMarkdown>{info}</ReactMarkdown>
+                    <ReactMarkdown
+                        components={{
+                            a: ({ ...props }) => (
+                                <a
+                                    {...props}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                />
+                            ),
+                        }}
+                    >
+                        {info}
+                    </ReactMarkdown>
                 </Box>
             </DialogContent>
         </Dialog>

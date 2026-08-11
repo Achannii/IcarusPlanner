@@ -1,5 +1,4 @@
-import { Box, FormControlLabel, IconButton, Switch, Typography } from '@mui/material';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import { Box, FormControlLabel, Switch, Typography } from '@mui/material';
 import { Categories, Trees } from '../data/talentTreeMap.ts';
 import { FullTrack, TalentData } from '../constants/treeStructures.ts';
 import { normalizeBenefits } from '../utils/normalizeBenefits.ts';
@@ -11,7 +10,6 @@ interface EffectsPanelProps {
     selectedTree: keyof typeof Trees | null;
     includeSolo: boolean;
     onToggleIncludeSolo: (value: boolean) => void;
-    onOpenInfo: () => void;
 }
 
 type BucketName = 'Stats' | 'Combat' | 'Utility' | 'Flags';
@@ -163,7 +161,6 @@ export default function EffectsPanel({
     selectedTree,
     includeSolo,
     onToggleIncludeSolo,
-    onOpenInfo,
 }: EffectsPanelProps) {
     const isCreatureContext = !!selectedCategory && CREATURE_CATEGORIES.has(selectedCategory);
     const relevantTreeKeys = getRelevantTreeKeys(allTalents, selectedCategory, selectedTree, includeSolo);
@@ -236,7 +233,7 @@ export default function EffectsPanel({
             sx={{
                 width: 650,
                 minWidth: 650,
-                height: 220,
+                height: 260,
                 border: '1px solid #444',
                 borderRadius: 1.5,
                 backgroundColor: '#1c1c1c',
@@ -260,9 +257,9 @@ export default function EffectsPanel({
             >
                 <Box
                     sx={{
-                        display: 'grid',
-                        gridTemplateColumns: isCreatureContext ? '1fr auto' : '1fr auto auto',
+                        display: 'flex',
                         alignItems: 'center',
+                        justifyContent: 'space-between',
                         gap: 1,
                         width: '100%',
                     }}
@@ -300,41 +297,6 @@ export default function EffectsPanel({
                             }}
                         />
                     )}
-
-                    <IconButton
-                        size="small"
-                        onClick={onOpenInfo}
-                        sx={{
-                            color: 'error.main',
-                            border: '1px solid #444',
-                            borderRadius: 1,
-                            width: 26,
-                            height: 26,
-                            flexShrink: 0,
-                            position: 'relative',
-                            '&:hover': {
-                                color: 'error.light',
-                            },
-                        }}
-                    >
-                        <FavoriteIcon fontSize="small" />
-                        <Box
-                            component="span"
-                            sx={{
-                                position: 'absolute',
-                                fontSize: '0.55rem',
-                                fontWeight: 700,
-                                color: '#111',
-                                top: '50%',
-                                left: '50%',
-                                transform: 'translate(-50%, -52%)',
-                                lineHeight: 1,
-                                pointerEvents: 'none',
-                            }}
-                        >
-                            i
-                        </Box>
-                    </IconButton>
                 </Box>
             </Box>
 

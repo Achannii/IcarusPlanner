@@ -9,6 +9,9 @@ export interface BonusTalentOption {
 
 export type BonusTalentSelections = Record<string, boolean>;
 
+const GREAT_HUNTS_ELYSIUM_ENABLED = false;
+const GREAT_HUNTS_ELYSIUM_POINTS = 2;
+
 const LEFT_COLUMN_OPTIONS: BonusTalentOption[] = [
     { key: 'olympus_nightfall', label: 'Nightfall', points: 2 },
     { key: 'styx_ironclad', label: 'Ironclad', points: 2 },
@@ -21,7 +24,12 @@ const RIGHT_COLUMN_OPTIONS: BonusTalentOption[] = [
     { key: 'great_hunt_quarrite', label: 'GH : Quarrite', points: 2 },
     { key: 'great_hunt_garganutan', label: 'GH : Garganutan', points: 2 },
     { key: 'great_hunt_rimetusk', label: 'GH : Rimetusk', points: 2 },
-    { key: 'great_hunt_elysium_soon', label: 'GH : Elysium (Soon)', points: 0, disabled: true },
+    {
+        key: 'great_hunt_elysium_soon',
+        label: GREAT_HUNTS_ELYSIUM_ENABLED ? 'GH : Elysium' : 'GH : Elysium (Soon)',
+        points: GREAT_HUNTS_ELYSIUM_POINTS,
+        disabled: !GREAT_HUNTS_ELYSIUM_ENABLED,
+    },
 ];
 
 export const BONUS_TALENT_OPTIONS: BonusTalentOption[] = [

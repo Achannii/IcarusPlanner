@@ -36,6 +36,7 @@ import ResetButtons from "./components/resetButtons.tsx";
 import ImportExportButtons from "./components/importExportButtons.tsx";
 import CategoryRibbon from "./components/categoryRibbon.tsx";
 import ConfirmDialog from "./components/confirmDialog.tsx";
+import CreatureBloodlineOverlay from "./components/creatureBloodlineOverlay.tsx";
 import '@fontsource/barlow';
 import '@fontsource/tomorrow';
 import { getPointsSpentInPool, getPointsSpentInTree } from "./utils/pointsSpent.ts";
@@ -100,7 +101,11 @@ function getTreeBackgroundPath(treeKey: keyof typeof Trees): string | null {
 
 function getBonusTalentTotal(selectedBonuses: BonusTalentSelections): number {
     return BONUS_TALENT_OPTIONS.reduce((total, option) => {
-        return total + (selectedBonuses[option.key] ? option.points : 0);
+        if (option.disabled || !selectedBonuses[option.key]) {
+            return total;
+        }
+
+        return total + option.points;
     }, 0);
 }
 
@@ -114,6 +119,7 @@ export default function TalentTreeApp() {
     const [includeSoloEffects, setIncludeSoloEffects] = useState(true);
     const [snackbarMessage, setSnackbarMessage] = useState<string | null>(null);
     const [guidanceState, setGuidanceState] = useState<GuidanceState | null>(null);
+    const [isGuidanceMessage, setIsGuidanceMessage] = useState(false);
     const [confirmResetAllOpen, setConfirmResetAllOpen] = useState(false);
     const [treeToReset, setTreeToReset] = useState<keyof typeof Trees | null>(null);
     const [infoOpen, setInfoOpen] = useState(false);
@@ -140,7 +146,10 @@ export default function TalentTreeApp() {
         };
     }, []);
 
-    const clearGuidance = () => setGuidanceState(null);
+    const clearGuidance = () => {
+        setGuidanceState(null);
+        setIsGuidanceMessage(false);
+    };
 
     useEffect(() => {
         const imported = importFromUrlSearch(window.location.search);
@@ -250,6 +259,7 @@ export default function TalentTreeApp() {
         }
 
         setGuidanceState(nextGuidanceState);
+        setIsGuidanceMessage(true);
         setSnackbarMessage(`Talent requires ${nextGuidanceState.unlockCost} more point${nextGuidanceState.unlockCost === 1 ? '' : 's'} to unlock.`);
     };
 
@@ -410,6 +420,150 @@ export default function TalentTreeApp() {
                             setSelectedCategory={setSelectedCategory}
                             setSelectedTree={setSelectedTree}
                         />
+
+                        <Box
+                            sx={{
+                                width: '100%',
+                                display: 'grid',
+                                gridTemplateColumns: '1fr auto auto auto 1fr',
+                                alignItems: 'center',
+                                gap: 2,
+                                mt: 0.25,
+                            }}
+                        >
+                            <Button
+                                variant="text"
+                                size="small"
+                                onClick={() => setInfoOpen(true)}
+                                sx={{
+                                    justifySelf: 'start',
+                                    minWidth: 0,
+                                    px: 0.5,
+                                    color: 'error.main',
+                                    textTransform: 'none',
+                                    fontSize: '0.76rem',
+                                    fontWeight: 600,
+                                    '&:hover': {
+                                        color: 'error.light',
+                                        backgroundColor: 'transparent',
+                                        textDecoration: 'underline',
+                                    },
+                                }}
+                            >
+                                About
+                            </Button>
+                            <Button
+                                component="a"
+                                href="https://icarus.wiki.gg/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                variant="outlined"
+                                size="small"
+                                sx={{
+                                    justifySelf: 'end',
+                                    minWidth: 110,
+                                    textTransform: 'none',
+                                    fontWeight: 700,
+                                    color: '#d0d0d0',
+                                    borderColor: '#555',
+                                    '&:hover': {
+                                        borderColor: 'warning.main',
+                                        color: 'warning.main',
+                                    },
+                                }}
+                            >
+                                Official Wiki
+                            </Button>
+
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    lineHeight: 1,
+                                    px: 1.5,
+                                    userSelect: 'none',
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        color: '#d6d6d6',
+                                        fontFamily: '"Tomorrow", sans-serif',
+                                        fontSize: '1.65rem',
+                                        fontWeight: 700,
+                                        letterSpacing: '0.22em',
+                                        lineHeight: 1,
+                                        textShadow: '0 1px 3px rgba(0,0,0,0.85)',
+                                    }}
+                                >
+                                    ICARUS
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        mt: 0.35,
+                                        color: 'warning.main',
+                                        fontFamily: '"Barlow", sans-serif',
+                                        fontSize: '0.62rem',
+                                        fontWeight: 700,
+                                        letterSpacing: '0.18em',
+                                        lineHeight: 1,
+                                        textTransform: 'uppercase',
+                                        textShadow: '0 1px 2px rgba(0,0,0,0.85)',
+                                    }}
+                                >
+                                    Dangerous Horizons
+                                </Typography>
+                            </Box>
+
+                            <Button
+                                component="a"
+                                href="https://discord.gg/gSKwWDPj"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                variant="outlined"
+                                size="small"
+                                sx={{
+                                    justifySelf: 'start',
+                                    minWidth: 110,
+                                    textTransform: 'none',
+                                    fontWeight: 700,
+                                    color: '#d0d0d0',
+                                    borderColor: '#555',
+                                    '&:hover': {
+                                        borderColor: 'warning.main',
+                                        color: 'warning.main',
+                                    },
+                                }}
+                            >
+                                Official Discord
+                            </Button>
+
+                            <Button
+                                component="a"
+                                href="https://github.com/Achannii/IcarusPlanner/issues"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                variant="text"
+                                size="small"
+                                sx={{
+                                    justifySelf: 'end',
+                                    minWidth: 0,
+                                    px: 0.5,
+                                    color: 'error.main',
+                                    textTransform: 'none',
+                                    fontSize: '0.76rem',
+                                    fontWeight: 600,
+                                    '&:hover': {
+                                        color: 'error.light',
+                                        backgroundColor: 'transparent',
+                                        textDecoration: 'underline',
+                                    },
+                                }}
+                            >
+                                Report
+                            </Button>
+                        </Box>
                     </Box>
 
                     <EffectsPanel
@@ -419,7 +573,6 @@ export default function TalentTreeApp() {
                         selectedTree={selectedTree}
                         includeSolo={includeSoloEffects}
                         onToggleIncludeSolo={setIncludeSoloEffects}
-                        onOpenInfo={() => setInfoOpen(true)}
                     />
 
                     {/* Full-width tree section */}
@@ -505,9 +658,8 @@ export default function TalentTreeApp() {
                                             ? 'linear-gradient(180deg, rgba(8,8,8,0.08) 0%, rgba(8,8,8,0.22) 42%, rgba(8,8,8,0.50) 100%)'
                                             : 'linear-gradient(180deg, rgba(8,8,8,0.22) 0%, rgba(8,8,8,0.38) 40%, rgba(8,8,8,0.55) 100%)';
 
-                                        return (
+                                        const treePanel = (
                                             <Box
-                                                key={treeKey}
                                                 sx={{
                                                     position: 'relative',
                                                     display: 'flex',
@@ -765,6 +917,33 @@ export default function TalentTreeApp() {
                                                 </Box>
                                             </Box>
                                         );
+
+                                        if (!isCreatureTree) {
+                                            return (
+                                                <Box key={treeKey}>
+                                                    {treePanel}
+                                                </Box>
+                                            );
+                                        }
+
+                                        const creatureLevel = talentPointsSpent[treeKey] || 0;
+
+                                        return (
+                                            <Box
+                                                key={treeKey}
+                                                sx={{
+                                                    display: 'grid',
+                                                    gridTemplateColumns: '200px max-content 200px',
+                                                    gap: 1.5,
+                                                    alignItems: 'start',
+                                                    justifyContent: 'center',
+                                                }}
+                                            >
+                                                <CreatureBloodlineOverlay creatureLevel={creatureLevel} side="left" />
+                                                {treePanel}
+                                                <CreatureBloodlineOverlay creatureLevel={creatureLevel} side="right" />
+                                            </Box>
+                                        );
                                     })}
                                 </Box>
                             </Box>
@@ -791,6 +970,7 @@ export default function TalentTreeApp() {
                     autoHideDuration={4000}
                     onClose={() => {
                         setSnackbarMessage(null);
+                        setIsGuidanceMessage(false);
                         setBlockingTalents(new Set());
                     }}
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
@@ -798,7 +978,10 @@ export default function TalentTreeApp() {
                     <Alert
                         severity="warning"
                         variant="filled"
-                        onClose={() => setSnackbarMessage(null)}
+                        onClose={() => {
+                            setSnackbarMessage(null);
+                            setIsGuidanceMessage(false);
+                        }}
                         sx={{
                             fontWeight: 600,
                             letterSpacing: '0.2px',
@@ -808,7 +991,31 @@ export default function TalentTreeApp() {
                             },
                         }}
                     >
-                        {snackbarMessage}
+                        <Box>
+                            <Typography
+                                component="div"
+                                sx={{
+                                    fontWeight: 600,
+                                    letterSpacing: '0.2px',
+                                }}
+                            >
+                                {snackbarMessage}
+                            </Typography>
+                            {isGuidanceMessage && (
+                                <Typography
+                                    component="div"
+                                    variant="caption"
+                                    sx={{
+                                        mt: 0.35,
+                                        fontWeight: 400,
+                                        letterSpacing: 0,
+                                        opacity: 0.9,
+                                    }}
+                                >
+                                    Colored paths represent alternative routes and are not ranked by recommendation.
+                                </Typography>
+                            )}
+                        </Box>
                     </Alert>
                 </Snackbar>
 

@@ -245,7 +245,7 @@ export default function SavedBuildsPanel({
                 sx={{
                     width: 250,
                     minWidth: 250,
-                    height: 220,
+                    height: 260,
                     border: '1px solid #444',
                     borderRadius: 1.5,
                     backgroundColor: '#1c1c1c',

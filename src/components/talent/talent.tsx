@@ -54,7 +54,7 @@ export default function Talent({
     const isGuidanceTarget = activeGuidanceForTree?.targetTalentName === talent.name;
     const routeColor = activeGuidanceForTree?.routes.find(route => route.nodeNames.includes(talent.name))?.color ?? null;
 
-    const handleLeftMouseDown = (e: React.MouseEvent) => {
+    const handleLeftClick = (e: React.MouseEvent) => {
         if (e.button !== 0) return;
         if (isAutoOwned) return;
 
@@ -203,7 +203,7 @@ export default function Talent({
                         cursor: isAutoOwned ? 'default' : 'pointer',
                         userSelect: 'none'
                     }}
-                    onMouseDown={handleLeftMouseDown}
+                    onClick={handleLeftClick}
                     onContextMenu={handleRightClick}
                 >
                     <PointsLabel currentPoints={displayPoints} maxPoints={maxPoints} isUnlocked={displayUnlocked} />
