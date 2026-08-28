@@ -13,7 +13,7 @@ export const wolfTree = {
 				[{value: 60, desc: "{0}% chance to Slow on Hit with Attacks", category: "Wolf - Modifiers"}],
 				[{value: 100, desc: "{0}% chance to Slow on Hit with Attacks", category: "Wolf - Modifiers"}],
 			],
-			position: [6, 4.0],
+			position: [4, 4.0],
 			imageName: "Companion/T_Talent_Wolf_SlowOnHit",
 		},
 		{
@@ -26,7 +26,7 @@ export const wolfTree = {
 				[{value: 60, desc: "+{0}% chance to cause Bleed on Hit with Attacks", category: "Wolf - Modifiers"}],
 				[{value: 100, desc: "+{0}% chance to cause Bleed on Hit with Attacks", category: "Wolf - Modifiers"}],
 			],
-			position: [3, 0.0],
+			position: [2, 0.0],
 			imageName: "Companion/T_Talent_Wolf_BleedOnHit",
 		},
 		{
@@ -52,7 +52,7 @@ export const wolfTree = {
 				[{value: 15, desc: "{0}% Health Restored on Kill", category: "Wolf - Modifiers"}],
 				[{value: 30, desc: "{0}% Health Restored on Kill", category: "Wolf - Modifiers"}],
 			],
-			position: [4, 8.0],
+			position: [3, 8.0],
 			imageName: "Companion/T_Talent_Wolf_HealOnKill",
 		},
 		{
@@ -65,7 +65,7 @@ export const wolfTree = {
 				[{value: 60, desc: "{0}% Chance to highlight target on hit", category: "Wolf - Modifiers"}],
 				[{value: 100, desc: "{0}% Chance to highlight target on hit", category: "Wolf - Modifiers"}],
 			],
-			position: [2, 8.0],
+			position: [1, 8.0],
 			imageName: "Companion/T_Talent_Wolf_HighlightTarget",
 		},
 		{
@@ -93,7 +93,7 @@ export const wolfTree = {
 				[{value: -10, desc: "+{0}% Food Consumption", category: "Wolf - Upkeep"}],
 				[{value: -20, desc: "+{0}% Food Consumption", category: "Wolf - Upkeep"}],
 			],
-			position: [5, 4.0],
+			position: [3, 4.0],
 			imageName: "Companion/T_Talent_Base_ReducedFoodConsumption",
 		},
 		{
@@ -104,7 +104,7 @@ export const wolfTree = {
 			benefits: [
 				[{value: 1, desc: "Can be specialized into aggressive combat roles or specific afflictions.", category: "Wolf - Flag"}],
 			],
-			position: [3, 4.0],
+			position: [2, 4.0],
 			imageName: "Companion/T_Talent_Base_Wolf",
 		},
 		{
@@ -118,7 +118,7 @@ export const wolfTree = {
 				[{value: 30, desc: "+{0}% Melee Damage", category: "Wolf - Melee DMG"}],
 				[{value: 60, desc: "+{0}% Melee Damage", category: "Wolf - Melee DMG"}],
 			],
-			position: [3, 6.0],
+			position: [2, 6.0],
 			imageName: "Companion/T_Talent_Base_CombatPetDamage",
 		},
 		{
@@ -132,7 +132,7 @@ export const wolfTree = {
 				[{value: 30, desc: "+{0}% Health Regeneration", category: "Wolf - Health"}],
 				[{value: 60, desc: "+{0}% Health Regeneration", category: "Wolf - Health"}],
 			],
-			position: [3, 2.0],
+			position: [2, 2.0],
 			imageName: "Companion/T_Talent_Base_HealthRegeneration",
 		},
 		{
@@ -146,7 +146,7 @@ export const wolfTree = {
 				[{value: 12, desc: "+{0}% Fruit and Vegetable Modifier Effectiveness", category: "Wolf - Misc"}],
 				[{value: 15, desc: "+{0}% Fruit and Vegetable Modifier Effectiveness", category: "Wolf - Misc"}, {value: 1, desc: "+{0} Space in Stomach", category: "Wolf - Character"}],
 			],
-			position: [6, 8.0],
+			position: [4, 8.0],
 			imageName: "Companion/T_Talent_Base_FoodSlot",
 		},
 		{
@@ -188,7 +188,7 @@ export const wolfTree = {
 				[{value: 8, desc: "+{0} Physical Resistance", category: "Wolf - Resistance"}],
 				[{value: 15, desc: "+{0} Physical Resistance", category: "Wolf - Resistance"}],
 			],
-			position: [6, 0.0],
+			position: [4, 0.0],
 			imageName: "Companion/T_Talent_Base_DamageReduction",
 		},
 	]),
@@ -196,8 +196,8 @@ export const wolfTree = {
 		{ start: "Metabolic Preservation", end: "Hamstring" },
 		{ start: "Nurtured Recovery", end: "Rip and Tear" },
 		{ start: "Wild Fortitude", end: "Hunter's Mark" },
-		{ start: "Natural Ferocity", path: [[3, 8.0]], end: "Endless Hunger" },
-		{ start: "Natural Ferocity", path: [[3, 8.0]], end: "Coordinated Attacks" },
+		{ start: "Natural Ferocity", path: [[2, 8.0]], end: "Endless Hunger" },
+		{ start: "Natural Ferocity", path: [[2, 8.0]], end: "Coordinated Attacks" },
 		{ start: "Wolf", end: "Wild Fortitude" },
 		{ start: "Wolf", end: "Metabolic Preservation" },
 		{ start: "Wolf", end: "Natural Ferocity" },

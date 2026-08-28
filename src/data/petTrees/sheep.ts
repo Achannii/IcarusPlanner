@@ -13,7 +13,7 @@ export const sheepTree = {
 				[{value: 8, desc: "+{0} Coziness Bonus", category: "Sheep - Modifiers"}],
 				[{value: 16, desc: "+{0} Coziness Bonus", category: "Sheep - Modifiers"}],
 			],
-			position: [2, 0.0],
+			position: [1, 0.0],
 			imageName: "Cooking/Talent_GatheringGuru",
 		},
 		{
@@ -54,7 +54,7 @@ export const sheepTree = {
 				[{value: -10, desc: "+{0}% Food Consumption", category: "Sheep - Upkeep"}],
 				[{value: -20, desc: "+{0}% Food Consumption", category: "Sheep - Upkeep"}],
 			],
-			position: [5, 4.0],
+			position: [3, 4.0],
 			imageName: "Companion/T_Talent_Base_ReducedFoodConsumption",
 		},
 		{
@@ -65,7 +65,7 @@ export const sheepTree = {
 			benefits: [
 				[{value: 1, desc: "Can be specialized into further wool growth or defensive bonuses.", category: "Sheep - Flag"}],
 			],
-			position: [3, 4.0],
+			position: [2, 4.0],
 			imageName: "Companion/T_Talent_Base_Sheep",
 		},
 		{
@@ -79,7 +79,7 @@ export const sheepTree = {
 				[{value: 12, desc: "+{0} Coziness Bonus", category: "Sheep - Modifiers"}],
 				[{value: 20, desc: "+{0} Coziness Bonus", category: "Sheep - Modifiers"}],
 			],
-			position: [3, 6.0],
+			position: [2, 6.0],
 			imageName: "Companion/T_Talent_Buffalo_FireResist",
 		},
 		{
@@ -93,7 +93,7 @@ export const sheepTree = {
 				[{value: 30, desc: "+{0}% Health Regeneration", category: "Sheep - Health"}],
 				[{value: 60, desc: "+{0}% Health Regeneration", category: "Sheep - Health"}],
 			],
-			position: [3, 2.0],
+			position: [2, 2.0],
 			imageName: "Companion/T_Talent_Base_HealthRegeneration",
 		},
 		{
@@ -107,7 +107,7 @@ export const sheepTree = {
 				[{value: 12, desc: "+{0}% Fruit and Vegetable Modifier Effectiveness", category: "Sheep - Misc"}],
 				[{value: 15, desc: "+{0}% Fruit and Vegetable Modifier Effectiveness", category: "Sheep - Misc"}, {value: 1, desc: "+{0} Space in Stomach", category: "Sheep - Character"}],
 			],
-			position: [6, 8.0],
+			position: [4, 8.0],
 			imageName: "Companion/T_Talent_Base_FoodSlot",
 		},
 		{
@@ -149,7 +149,7 @@ export const sheepTree = {
 				[{value: 8, desc: "+{0} Physical Resistance", category: "Sheep - Resistance"}],
 				[{value: 15, desc: "+{0} Physical Resistance", category: "Sheep - Resistance"}],
 			],
-			position: [6, 0.0],
+			position: [4, 0.0],
 			imageName: "Companion/T_Talent_Base_DamageReduction",
 		},
 		{
@@ -162,7 +162,7 @@ export const sheepTree = {
 				[{value: 5, desc: "+{0} Physical Resistance", category: "Sheep - Resistance"}],
 				[{value: 10, desc: "+{0} Physical Resistance", category: "Sheep - Resistance"}],
 			],
-			position: [2, 8.0],
+			position: [1, 8.0],
 			imageName: "Companion/T_Talent_Buffalo_DamageReduction",
 		},
 		{
@@ -175,7 +175,7 @@ export const sheepTree = {
 				[{value: -15, desc: "{0}% More Resources Consumed", category: "Sheep - AI"}],
 				[{value: -30, desc: "{0}% More Resources Consumed", category: "Sheep - AI"}],
 			],
-			position: [4, 0.0],
+			position: [3, 0.0],
 			imageName: "Companion/T_Talent_BlueBack_PhysicalResistAura",
 		},
 		{
@@ -188,12 +188,12 @@ export const sheepTree = {
 				[{value: -10, desc: "+{0}% Perceived Threat", category: "Sheep - Stealth"}],
 				[{value: -20, desc: "+{0}% Perceived Threat", category: "Sheep - Stealth"}],
 			],
-			position: [4, 8.0],
+			position: [3, 8.0],
 			imageName: "Companion/T_Talent_Wolf_MarkOnHit",
 		},
 	]),
 	fullTracks: [
-		{ start: "Nurtured Recovery", path: [[3, 0.0]], end: "Calming Baas" },
+		{ start: "Nurtured Recovery", path: [[2, 0.0]], end: "Calming Baas" },
 		{ start: "Wild Fortitude", end: "Fed Well" },
 		{ start: "Sheep", end: "Wild Fortitude" },
 		{ start: "Sheep", end: "Metabolic Preservation" },
@@ -207,8 +207,8 @@ export const sheepTree = {
 		{ start: "Nurtured Recovery", path: [], end: "Perfect Pasturage" },
 		{ start: "Nurtured Recovery", path: [], end: "Tough as Leather" },
 		{ start: "Metabolic Preservation", path: [], end: "Tough as Leather" },
-		{ start: "Calming Presence", path: [[3, 8.0]], end: "Thick Hide" },
-		{ start: "Nurtured Recovery", path: [[3, 0.0]], end: "Healthy Mutton" },
-		{ start: "Calming Presence", path: [[3, 8.0]], end: "In Sheeps Clothing" },
+		{ start: "Calming Presence", path: [[2, 8.0]], end: "Thick Hide" },
+		{ start: "Nurtured Recovery", path: [[2, 0.0]], end: "Healthy Mutton" },
+		{ start: "Calming Presence", path: [[2, 8.0]], end: "In Sheeps Clothing" },
 	] as FullTrack[],
 };

@@ -1,105 +1,162 @@
-# Icarus Talent Planner -- A modern, accurate, and fully interactive Character and Creature talent planner for **Icarus**. Runs entirely in your browser. No installation required.
+# Icarus Talent Planner
+
+A modern, accurate, and fully interactive character and creature talent planner for **Icarus: Dangerous Horizons**.
+
+**Current Version:** 1.1.0
+**Live Planner:** [IcarusPlanner.app](https://icarusplanner.app)
+
+Runs entirely in your browser. No account, installation, or backend service is required.
 
 ---
 
-## 🔥 Key Features
+## Key Features
 
-### 🧠 Talent Guidance System
+### Talent Guidance
 
-Click any locked talent to instantly see:
+Click a locked talent to:
 
-* the **shortest valid unlock path**
-* all **possible prerequisite routes** (if multiple exist)
-* the exact number of **points required until unlock**
+- Highlight valid prerequisite routes
+- See the talents required along each route
+- See how many additional points are needed
+- Compare alternative paths without treating one as the recommended route
 
-No guessing. No trial-and-error.
+### Complete Point-System Support
 
----
+- General and Solo point pools
+- Character-level scaling
+- Mission-derived bonus talents
+- Independent Mount, Pet, and Livestock point pools
+- Correct rank gates, prerequisites, and refund validation
+- Live point totals on General talent-tree headers
 
-### 📊 Full Point System Support
+### Character and Creature Trees
 
-* General, Solo, and Creature point pools
-* Character level scaling
-* Bonus talent system (mission rewards)
-* Over-cap handling (visual only, no forced correction)
+- Fourteen General player talent trees
+- Dedicated Solo tree
+- Mount, Pet, and Livestock talent trees
+- Independent progression for every creature
+- Automatically owned creature baseline talents
+- Creature layouts modeled after their in-game talent trees
 
----
+### Creature Bloodline Tracking
 
-### 🐾 Creature Support
+- Live Bloodline statistics for creature builds
+- Values update dynamically as talent points are spent or refunded
+- Updates correctly after loading, importing, or resetting builds
+- Bloodline panels aligned with the creature talent panels
 
-* Mounts, Pets, and Livestock
-* Independent per-creature talent trees
-* Auto-owned baseline talents
-* Correct per-tree point limits
+### Effects Tracking
 
----
+- Displays active player, Solo, and creature effects
+- Updates immediately as the current build changes
+- Optional inclusion of Solo effects
 
-### 💾 Save, Share, and Manage Builds
+### Save and Manage Builds
 
-* Save builds locally
-* Pin favorites
-* Load and replace builds cleanly
-* Share builds via URL
-* Import/export support
+- Save named builds in the browser
+- Pin favorite builds
+- Save player-only, creature-only, or complete builds
+- Green indicator for the currently loaded, unchanged build
+- Yellow indicator when the loaded build has unsaved changes
+- Load, overwrite, delete, import, and export builds
 
----
+### Share Builds
 
-### 🧩 Clean, Desktop-First UI
+- Share builds through compressed URLs
+- Import and export build data
+- Support for player-only, creature-only, and complete builds
+- Compatibility with legacy shared links
 
-* Multi-tree view per category
-* Dedicated Effects panel
-* No layout shifting
-* Built for clarity over clutter
+Large complete builds containing many creature allocations may still produce long URLs.
 
----
+### Responsive UI Scaling
 
-### 🎯 Accurate Talent Logic
+- Automatically scales between 50% and 100%
+- Adapts when moving the browser between different displays
+- Supports ultrawide, 1080p, and mobile viewports
+- Preserves single-row player talent-tree layouts
+- Keeps all talents reachable on narrow screens
 
-* Correct **OR prerequisite handling**
-* Proper **tier gating** (no self-counting)
-* Full **refund validation**
-* Matches in-game behavior closely
+### What's New Announcements
 
----
-
-## 📘 How to Use
-
-* Click talents to **(left-click) spend** or **(right-click) refund** points
-* Clicking locked talents will **highlight required paths**
-* Use **Import/Export** to share builds
-* Use **Save Manager** to store and organize builds
-* Adjust **Character Level** and **Bonus Talents** to match your progress
-* Use **Reset buttons** to clear trees or the entire build
-
----
-
-## 🎯 Project Goals
-
-This tool is built to:
-
-* Match in-game behavior as closely as possible
-* Provide clear, visual guidance for build planning
-* Remain easy to update as new content is added
-* Provide a faster and more intuitive experience than existing calculators
+- Displays the latest feature announcement
+- Can be dismissed for the current visit
+- Optional "Do not show this message again" acknowledgment
+- Can be reopened from the About panel
 
 ---
 
-## 🙌 Attribution
+## How to Use
+
+- **Left-click** a talent to spend a point
+- **Right-click** a talent to refund a point
+- Click a locked talent to preview its unlock paths
+- Adjust **Character Level** and **Bonus Talents** to match your character
+- Use **Reset Tree** to clear one talent tree
+- Use **Reset All** to clear the complete planner state
+- Use the **Save Build Manager** to store and organize builds
+- Use **Import**, **Export**, or **Copy URL** to share builds
+
+The active planner state is encoded in the page URL. Named saved builds are stored locally in the current browser and browser profile.
+
+---
+
+## Local Development
+
+Install the locked dependencies:
+
+```powershell
+npm ci
+```
+
+Start the development server:
+
+```powershell
+npm run dev
+```
+
+Run the test suite:
+
+```powershell
+npm test
+```
+
+Create a production build:
+
+```powershell
+npm run build
+```
+
+---
+
+## Project Goals
+
+This project aims to:
+
+- Match in-game talent behavior as closely as possible
+- Provide clear visual guidance for build planning
+- Support player and creature builds in one planner
+- Preserve compatibility with previously shared builds
+- Remain easy to update as Icarus receives new content
+
+---
+
+## Attribution
 
 Based on the original **Icarus Talent Calculator** by **PanoramicPanda**.
 
-This version includes substantial redesigns and improvements across logic, UI, and data systems.
+This version includes substantial redesigns and improvements across talent logic, guidance, saves, sharing, creature support, Bloodline tracking, and responsive layout.
 
 ---
 
-## ⚠ Disclaimer
+## Disclaimer
 
-This is a **fan-made, unofficial tool** for *Icarus*.
+This is a fan-made, unofficial tool for *Icarus: Dangerous Horizons*.
 
 All game content, names, and assets belong to **RocketWerkz** and their respective owners.
 
 ---
 
-## 📜 License
+## License
 
 Distributed under the MIT License. See the `LICENSE` file for details.

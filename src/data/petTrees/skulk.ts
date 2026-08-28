@@ -14,7 +14,7 @@ export const skulkTree = {
 				[{value: 30, desc: "+{0}% Health Regeneration", category: "Skulk - Health"}],
 				[{value: 60, desc: "+{0}% Health Regeneration", category: "Skulk - Health"}],
 			],
-			position: [0, 2.0],
+			position: [0, 4.0],
 			imageName: "Companion/T_Talent_Base_HealthRegeneration",
 		},
 		{
@@ -42,7 +42,7 @@ export const skulkTree = {
 				[{value: -10, desc: "+{0}% Water Consumption", category: "Skulk - Upkeep"}, {value: 5, desc: "+{0}% Heat Resistance", category: "Skulk - Temperature"}],
 				[{value: -20, desc: "+{0}% Water Consumption", category: "Skulk - Upkeep"}, {value: 10, desc: "+{0}% Heat Resistance", category: "Skulk - Temperature"}],
 			],
-			position: [.5, 4.0],
+			position: [.5, 8.0],
 			imageName: "Companion/T_Talent_Base_ReducedWaterUsage",
 		},
 		{
@@ -56,7 +56,7 @@ export const skulkTree = {
 				[{value: 10, desc: "+{0}% Maximum Health", category: "Skulk - Health"}],
 				[{value: 20, desc: "+{0}% Maximum Health", category: "Skulk - Health"}],
 			],
-			position: [1.0, 2.0],
+			position: [1.0, 4.0],
 			imageName: "Companion/T_Talent_Base_Health",
 		},
 		{
@@ -70,7 +70,7 @@ export const skulkTree = {
 				[{value: 12, desc: "+{0}% Fruit and Vegetable Modifier Effectiveness", category: "Skulk - Modifiers"}],
 				[{value: 15, desc: "+{0}% Fruit and Vegetable Modifier Effectiveness", category: "Skulk - Modifiers"}, {value: 1, desc: "+{0} Space in Stomach", category: "Skulk - Modifiers"}],
 			],
-			position: [2, 0],
+			position: [1.75, 0],
 			imageName: "Companion/T_Talent_Base_FoodSlot",
 		},
 		{
@@ -81,7 +81,7 @@ export const skulkTree = {
 			benefits: [
 				[{value: 1, desc: "Skulk creature identity talent.", category: "Skulk - Flag"}],
 			],
-			position: [2, 2.0],
+			position: [1.75, 4.0],
 			imageName: "Companion/T_Talent_Base_Orka",
 		},
 		{
@@ -95,7 +95,7 @@ export const skulkTree = {
 				[{value: -10, desc: "+{0}% Food Consumption", category: "Skulk - Upkeep"}],
 				[{value: -20, desc: "+{0}% Food Consumption", category: "Skulk - Upkeep"}],
 			],
-			position: [2, 4.0],
+			position: [1.75, 8.0],
 			imageName: "Companion/T_Talent_Base_ReducedFoodConsumption",
 		},
 		{
@@ -109,7 +109,7 @@ export const skulkTree = {
 				[{value: 20, desc: "+{0}% Hardened Point Penetration", category: "Skulk - Combat"}],
 				[{value: 30, desc: "+{0}% Hardened Point Penetration", category: "Skulk - Combat"}],
 			],
-			position: [3, 1.0],
+			position: [2.5, 2.0],
 			imageName: "Spears/Talent_Spear_DeadlyThrust2",
 		},
 		{
@@ -123,7 +123,7 @@ export const skulkTree = {
 				[{value: 30, desc: "+{0}% Melee Damage", category: "Skulk - Combat"}],
 				[{value: 60, desc: "+{0}% Melee Damage", category: "Skulk - Combat"}],
 			],
-			position: [3, 3.0],
+			position: [2.5, 6.0],
 			imageName: "Companion/T_Talent_Orka_Teeth2",
 		},
 		{
@@ -137,7 +137,7 @@ export const skulkTree = {
 				[{value: 10, desc: "+{0} Physical Resistance", category: "Skulk - Resistance"}],
 				[{value: 20, desc: "+{0} Physical Resistance", category: "Skulk - Resistance"}],
 			],
-			position: [4, 2.0],
+			position: [3.25, 4.0],
 			imageName: "Companion/T_Talent_Blueback_DamageReduction",
 		},
 		{
@@ -150,7 +150,7 @@ export const skulkTree = {
 				[{value: 15, desc: "+{0}% chance to cause Slow", category: "Skulk - Combat"}],
 				[{value: 25, desc: "+{0}% chance to cause Slow", category: "Skulk - Combat"}],
 			],
-			position: [5, 0],
+			position: [4, 0],
 			imageName: "Bows/Talent_Bow_IncreasedBowAccuracy",
 		},
 		{
@@ -163,7 +163,7 @@ export const skulkTree = {
 				[{value: 15, desc: "+{0}% chance to cause Hemorrhage", category: "Skulk - Combat"}],
 				[{value: 25, desc: "+{0}% chance to cause Hemorrhage", category: "Skulk - Combat"}],
 			],
-			position: [5, 1.3],
+			position: [4, 2.6],
 			imageName: "Companion/T_Talent_Wolf_BleedOnHit",
 		},
 		{
@@ -176,7 +176,7 @@ export const skulkTree = {
 				[{value: 10, desc: "+{0}% Life Leech on hit", category: "Skulk - Combat"}],
 				[{value: 15, desc: "+{0}% Life Leech on hit", category: "Skulk - Combat"}],
 			],
-			position: [5, 2.7],
+			position: [4, 5.4],
 			imageName: "Solo/Talent_Solo_LowMaintanence",
 		},
 		{
@@ -189,7 +189,7 @@ export const skulkTree = {
 				[{value: 20, desc: "+{0}% Melee Damage", category: "Skulk - Combat"}, {value: -10, desc: "+{0} Physical Resistance", category: "Skulk - Resistance"}],
 				[{value: 30, desc: "+{0}% Melee Damage", category: "Skulk - Combat"}, {value: -20, desc: "+{0} Physical Resistance", category: "Skulk - Resistance"}],
 			],
-			position: [5, 4.0],
+			position: [4, 8.0],
 			imageName: "Companion/T_Talent_Orka_Teeth2",
 		},
 	]),

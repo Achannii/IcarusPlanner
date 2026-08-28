@@ -13,7 +13,7 @@ export const catTree = {
 				[{value: -10, desc: "+{0}% Perceived Threat", category: "Cat - Stealth"}],
 				[{value: -15, desc: "+{0}% Perceived Threat", category: "Cat - Stealth"}, {value: 1, desc: "Nearby Juveniles Tame Faster", category: "Cat - Mounts"}],
 			],
-			position: [2, 0.0],
+			position: [1, 0.0],
 			imageName: "Companion/T_Talent_Base_ReducedThreat",
 		},
 		{
@@ -39,7 +39,7 @@ export const catTree = {
 				[{value: -5, desc: "+{0}% Food Consumption", category: "Cat - Upkeep"}, {value: -5, desc: "+{0}% Water Consumption", category: "Cat - Upkeep"}],
 				[{value: -10, desc: "+{0}% Food Consumption", category: "Cat - Upkeep"}, {value: -10, desc: "+{0}% Water Consumption", category: "Cat - Upkeep"}],
 			],
-			position: [4, 0.0],
+			position: [3, 0.0],
 			imageName: "Companion/T_Talent_Wolf_MarkOnHit",
 		},
 		{
@@ -52,7 +52,7 @@ export const catTree = {
 				[{value: 15, desc: "+{0}% Health Regeneration", category: "Cat - Health"}],
 				[{value: 30, desc: "+{0}% Health Regeneration", category: "Cat - Health"}, {value: 1, desc: "Nearby Allies have additional Health Regeneration", category: "Cat - Modifiers"}],
 			],
-			position: [3, 8.0],
+			position: [2, 8.0],
 			imageName: "Companion/T_Talent_Buffalo_AuraHeatResist",
 		},
 		{
@@ -80,7 +80,7 @@ export const catTree = {
 				[{value: -10, desc: "+{0}% Food Consumption", category: "Cat - Upkeep"}],
 				[{value: -20, desc: "+{0}% Food Consumption", category: "Cat - Upkeep"}],
 			],
-			position: [5, 4.0],
+			position: [3, 4.0],
 			imageName: "Companion/T_Talent_Base_ReducedFoodConsumption",
 		},
 		{
@@ -91,7 +91,7 @@ export const catTree = {
 			benefits: [
 				[{value: 1, desc: "Can be specialized into different bonuses for your base.", category: "Cat - Flag"}],
 			],
-			position: [3, 4.0],
+			position: [2, 4.0],
 			imageName: "Companion/T_Talent_Base_Cat",
 		},
 		{
@@ -105,7 +105,7 @@ export const catTree = {
 				[{value: 12, desc: "+{0} Coziness Bonus", category: "Cat - Modifiers"}],
 				[{value: 20, desc: "+{0} Coziness Bonus", category: "Cat - Modifiers"}],
 			],
-			position: [3, 6.0],
+			position: [2, 6.0],
 			imageName: "Companion/T_Talent_Buffalo_FireResist",
 		},
 		{
@@ -119,7 +119,7 @@ export const catTree = {
 				[{value: 30, desc: "+{0}% Health Regeneration", category: "Cat - Health"}],
 				[{value: 60, desc: "+{0}% Health Regeneration", category: "Cat - Health"}],
 			],
-			position: [3, 2.0],
+			position: [2, 2.0],
 			imageName: "Companion/T_Talent_Base_HealthRegeneration",
 		},
 		{
@@ -133,7 +133,7 @@ export const catTree = {
 				[{value: 12, desc: "+{0}% Fruit and Vegetable Modifier Effectiveness", category: "Cat - Misc"}],
 				[{value: 15, desc: "+{0}% Fruit and Vegetable Modifier Effectiveness", category: "Cat - Misc"}, {value: 1, desc: "+{0} Space in Stomach", category: "Cat - Character"}],
 			],
-			position: [6, 8.0],
+			position: [4, 8.0],
 			imageName: "Companion/T_Talent_Base_FoodSlot",
 		},
 		{
@@ -175,7 +175,7 @@ export const catTree = {
 				[{value: 8, desc: "+{0} Physical Resistance", category: "Cat - Resistance"}],
 				[{value: 15, desc: "+{0} Physical Resistance", category: "Cat - Resistance"}],
 			],
-			position: [6, 0.0],
+			position: [4, 0.0],
 			imageName: "Companion/T_Talent_Base_DamageReduction",
 		},
 		{
@@ -188,14 +188,14 @@ export const catTree = {
 				[{value: 5, desc: "+{0}% Maximum Health", category: "Cat - Health"}],
 				[{value: 1, desc: "Mount is Replaced by Juvenile When Killed", category: "Cat - AI"}, {value: 7, desc: "+{0}% Maximum Health", category: "Cat - Health"}],
 			],
-			position: [6, 4.0],
+			position: [4, 4.0],
 			imageName: "Companion/T_Talent_Moa_Rebirth",
 		},
 	]),
 	fullTracks: [
-		{ start: "Nurtured Recovery", path: [[3, 0.0]], end: "Nurturing Gaze" },
+		{ start: "Nurtured Recovery", path: [[2, 0.0]], end: "Nurturing Gaze" },
 		{ start: "Wild Fortitude", end: "Lounging Prowess" },
-		{ start: "Nurtured Recovery", path: [[3, 0.0]], end: "Self Sufficient" },
+		{ start: "Nurtured Recovery", path: [[2, 0.0]], end: "Self Sufficient" },
 		{ start: "Calming Presence", end: "Homely Recovery" },
 		{ start: "Cat", end: "Wild Fortitude" },
 		{ start: "Cat", end: "Metabolic Preservation" },

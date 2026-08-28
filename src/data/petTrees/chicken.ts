@@ -13,7 +13,7 @@ export const chickenTree = {
 				[{value: 4, desc: "+{0} Coziness Bonus", category: "Chicken - Modifiers"}],
 				[{value: 8, desc: "+{0} Coziness Bonus", category: "Chicken - Modifiers"}],
 			],
-			position: [2, 0.0],
+			position: [1, 0.0],
 			imageName: "Cooking/Talent_GatheringGuru",
 		},
 		{
@@ -54,7 +54,7 @@ export const chickenTree = {
 				[{value: -10, desc: "+{0}% Food Consumption", category: "Chicken - Upkeep"}],
 				[{value: -20, desc: "+{0}% Food Consumption", category: "Chicken - Upkeep"}],
 			],
-			position: [5, 4.0],
+			position: [3, 4.0],
 			imageName: "Companion/T_Talent_Base_ReducedFoodConsumption",
 		},
 		{
@@ -65,7 +65,7 @@ export const chickenTree = {
 			benefits: [
 				[{value: 1, desc: "Can be specialized into further egg laying bonuses, or grown for feasting.", category: "Chicken - Flag"}],
 			],
-			position: [3, 4.0],
+			position: [2, 4.0],
 			imageName: "Companion/T_Talent_Base_Chicken",
 		},
 		{
@@ -79,7 +79,7 @@ export const chickenTree = {
 				[{value: 6, desc: "+{0} Coziness Bonus", category: "Chicken - Modifiers"}],
 				[{value: 20, desc: "+{0} Coziness Bonus", category: "Chicken - Modifiers"}],
 			],
-			position: [3, 6.0],
+			position: [2, 6.0],
 			imageName: "Companion/T_Talent_Buffalo_FireResist",
 		},
 		{
@@ -93,7 +93,7 @@ export const chickenTree = {
 				[{value: 30, desc: "+{0}% Health Regeneration", category: "Chicken - Health"}],
 				[{value: 60, desc: "+{0}% Health Regeneration", category: "Chicken - Health"}],
 			],
-			position: [3, 2.0],
+			position: [2, 2.0],
 			imageName: "Companion/T_Talent_Base_HealthRegeneration",
 		},
 		{
@@ -107,7 +107,7 @@ export const chickenTree = {
 				[{value: 12, desc: "+{0}% Fruit and Vegetable Modifier Effectiveness", category: "Chicken - Misc"}],
 				[{value: 15, desc: "+{0}% Fruit and Vegetable Modifier Effectiveness", category: "Chicken - Misc"}, {value: 1, desc: "+{0} Space in Stomach", category: "Chicken - Character"}],
 			],
-			position: [6, 8.0],
+			position: [4, 8.0],
 			imageName: "Companion/T_Talent_Base_FoodSlot",
 		},
 		{
@@ -149,7 +149,7 @@ export const chickenTree = {
 				[{value: 8, desc: "+{0} Physical Resistance", category: "Chicken - Resistance"}],
 				[{value: 15, desc: "+{0} Physical Resistance", category: "Chicken - Resistance"}],
 			],
-			position: [6, 0.0],
+			position: [4, 0.0],
 			imageName: "Companion/T_Talent_Base_DamageReduction",
 		},
 		{
@@ -162,7 +162,7 @@ export const chickenTree = {
 				[{value: -15, desc: "{0}% Time Between Eggs", category: "Chicken - AI"}],
 				[{value: -30, desc: "{0}% Time Between Eggs", category: "Chicken - AI"}],
 			],
-			position: [6, 4.0],
+			position: [4, 4.0],
 			imageName: "Companion/T_Talent_Base_SlowResistance",
 		},
 		{
@@ -175,7 +175,7 @@ export const chickenTree = {
 				[{value: -15, desc: "{0}% More Resources Consumed Per Egg Laid", category: "Chicken - AI"}],
 				[{value: -30, desc: "{0}% More Resources Consumed Per Egg Laid", category: "Chicken - AI"}],
 			],
-			position: [4, 0.0],
+			position: [3, 0.0],
 			imageName: "Companion/T_Talent_Base_StaminaRegeneration",
 		},
 		{
@@ -188,12 +188,12 @@ export const chickenTree = {
 				[{value: -10, desc: "+{0}% Perceived Threat", category: "Chicken - Stealth"}],
 				[{value: -20, desc: "+{0}% Perceived Threat", category: "Chicken - Stealth"}],
 			],
-			position: [3, 8.0],
+			position: [2, 8.0],
 			imageName: "Companion/T_Talent_Wolf_MarkOnHit",
 		},
 	]),
 	fullTracks: [
-		{ start: "Nurtured Recovery", path: [[3, 0.0]], end: "Calming Clucks" },
+		{ start: "Nurtured Recovery", path: [[2, 0.0]], end: "Calming Clucks" },
 		{ start: "Wild Fortitude", end: "Fed Well" },
 		{ start: "Chicken", end: "Wild Fortitude" },
 		{ start: "Chicken", end: "Metabolic Preservation" },
@@ -208,7 +208,7 @@ export const chickenTree = {
 		{ start: "Metabolic Preservation", path: [], end: "Tough as Leather" },
 		{ start: "Nurtured Recovery", path: [], end: "Tough as Leather" },
 		{ start: "Metabolic Preservation", end: "Leghorn" },
-		{ start: "Nurtured Recovery", path: [[3, 0.0]], end: "Healthy Hen" },
+		{ start: "Nurtured Recovery", path: [[2, 0.0]], end: "Healthy Hen" },
 		{ start: "Calming Presence", end: "Soft Patters" },
 	] as FullTrack[],
 };

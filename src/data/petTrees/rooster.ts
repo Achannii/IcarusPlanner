@@ -13,7 +13,7 @@ export const roosterTree = {
 				[{value: 4, desc: "+{0} Coziness Bonus", category: "Rooster - Modifiers"}],
 				[{value: 8, desc: "+{0} Coziness Bonus", category: "Rooster - Modifiers"}],
 			],
-			position: [3, 0.0],
+			position: [2, 0.0],
 			imageName: "Cooking/Talent_GatheringGuru",
 		},
 		{
@@ -54,7 +54,7 @@ export const roosterTree = {
 				[{value: -10, desc: "+{0}% Food Consumption", category: "Rooster - Upkeep"}],
 				[{value: -20, desc: "+{0}% Food Consumption", category: "Rooster - Upkeep"}],
 			],
-			position: [5, 4.0],
+			position: [3, 4.0],
 			imageName: "Companion/T_Talent_Base_ReducedFoodConsumption",
 		},
 		{
@@ -65,7 +65,7 @@ export const roosterTree = {
 			benefits: [
 				[{value: 1, desc: "Can be specialized into further egg laying bonuses, or grown for feasting.", category: "Rooster - Flag"}],
 			],
-			position: [3, 4.0],
+			position: [2, 4.0],
 			imageName: "Companion/T_Talent_Base_Rooster",
 		},
 		{
@@ -79,7 +79,7 @@ export const roosterTree = {
 				[{value: 6, desc: "+{0} Coziness Bonus", category: "Rooster - Modifiers"}],
 				[{value: 20, desc: "+{0} Coziness Bonus", category: "Rooster - Modifiers"}],
 			],
-			position: [3, 6.0],
+			position: [2, 6.0],
 			imageName: "Companion/T_Talent_Buffalo_FireResist",
 		},
 		{
@@ -93,7 +93,7 @@ export const roosterTree = {
 				[{value: 30, desc: "+{0}% Health Regeneration", category: "Rooster - Health"}],
 				[{value: 60, desc: "+{0}% Health Regeneration", category: "Rooster - Health"}],
 			],
-			position: [3, 2.0],
+			position: [2, 2.0],
 			imageName: "Companion/T_Talent_Base_HealthRegeneration",
 		},
 		{
@@ -107,7 +107,7 @@ export const roosterTree = {
 				[{value: 12, desc: "+{0}% Fruit and Vegetable Modifier Effectiveness", category: "Rooster - Misc"}],
 				[{value: 15, desc: "+{0}% Fruit and Vegetable Modifier Effectiveness", category: "Rooster - Misc"}, {value: 1, desc: "+{0} Space in Stomach", category: "Rooster - Character"}],
 			],
-			position: [6, 8.0],
+			position: [4, 8.0],
 			imageName: "Companion/T_Talent_Base_FoodSlot",
 		},
 		{
@@ -149,7 +149,7 @@ export const roosterTree = {
 				[{value: 8, desc: "+{0} Physical Resistance", category: "Rooster - Resistance"}],
 				[{value: 15, desc: "+{0} Physical Resistance", category: "Rooster - Resistance"}],
 			],
-			position: [6, 0.0],
+			position: [4, 0.0],
 			imageName: "Companion/T_Talent_Base_DamageReduction",
 		},
 		{
@@ -162,7 +162,7 @@ export const roosterTree = {
 				[{value: 30, desc: "+{0}% Health Regeneration", category: "Rooster - Health"}],
 				[{value: 30, desc: "+{0}% Health Regeneration", category: "Rooster - Health"}, {value: 1, desc: "Nearby Allies have additional Health Regeneration", category: "Rooster - Modifiers"}],
 			],
-			position: [6, 4.0],
+			position: [4, 4.0],
 			imageName: "Companion/T_Talent_BlueBack_PhysicalResistAura",
 		},
 		{
@@ -175,7 +175,7 @@ export const roosterTree = {
 				[{value: -10, desc: "+{0}% Perceived Threat", category: "Rooster - Stealth"}],
 				[{value: -20, desc: "+{0}% Perceived Threat", category: "Rooster - Stealth"}],
 			],
-			position: [2, 8.0],
+			position: [1, 8.0],
 			imageName: "Companion/T_Talent_Wolf_MarkOnHit",
 		},
 		{
@@ -188,7 +188,7 @@ export const roosterTree = {
 				[{value: -5, desc: "+{0}% Water Consumed in the Desert", category: "Rooster - Consumption"}],
 				[{value: -7, desc: "+{0}% Water Consumed in the Desert", category: "Rooster - Consumption"}, {value: 1, desc: "Nearby Players More Resistant to Hyperthermia", category: "Rooster - Temperature"}],
 			],
-			position: [4, 8.0],
+			position: [3, 8.0],
 			imageName: "Companion/T_Talent_Buffalo_AuraHeatResist",
 		},
 	]),
@@ -208,7 +208,7 @@ export const roosterTree = {
 		{ start: "Metabolic Preservation", path: [], end: "Tough as Leather" },
 		{ start: "Nurtured Recovery", path: [], end: "Tough as Leather" },
 		{ start: "Metabolic Preservation", end: "Guardian" },
-		{ start: "Calming Presence", path: [[3, 8.0]], end: "Soft Patters" },
-		{ start: "Calming Presence", path: [[3, 8.0]], end: "Warmth" },
+		{ start: "Calming Presence", path: [[2, 8.0]], end: "Soft Patters" },
+		{ start: "Calming Presence", path: [[2, 8.0]], end: "Warmth" },
 	] as FullTrack[],
 };

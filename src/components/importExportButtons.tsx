@@ -38,6 +38,7 @@ interface ImportExportProps {
     exportText: string;
     setExportText: (text: string) => void;
     onOpenSaveDialog: () => void;
+    onImportComplete: () => void;
 }
 
 const ACTION_BUTTON_WIDTH = 118;
@@ -61,6 +62,7 @@ export default function ImportExportButtons({
     exportText,
     setExportText,
     onOpenSaveDialog,
+    onImportComplete,
 }: ImportExportProps) {
     const handleCopyURL = () => {
         const url = buildShareUrl(
@@ -94,6 +96,7 @@ export default function ImportExportButtons({
             setTalentPointsSpent(calculatePointsSpent(parsed.talentPoints));
             setCharacterLevel(clampCharacterLevel(parsed.characterLevel ?? DEFAULT_CHARACTER_LEVEL));
             setSelectedBonusTalents(parsed.selectedBonusTalents ?? {});
+            onImportComplete();
 
             setImportDialogOpen(false);
             snackbar.setMessage(completedMessage);

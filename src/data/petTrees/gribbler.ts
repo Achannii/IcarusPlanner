@@ -68,7 +68,7 @@ export const gribblerTree = {
 				[{value: 1, desc: "Can Throw Stick in Combat", category: "Gribbler - Combat"}, {value: 1, desc: "+{0} Projectile Ricochet Count", category: "Gribbler - Combat"}],
 				[{value: 1, desc: "Can Throw Stick in Combat", category: "Gribbler - Combat"}, {value: 3, desc: "+{0} Projectile Ricochet Count", category: "Gribbler - Combat"}],
 			],
-			position: [2, 8.0],
+			position: [1, 8.0],
 			imageName: "Companion/T_Talent_TundraMonkey_ThrowStick",
 		},
 		{
@@ -81,7 +81,7 @@ export const gribblerTree = {
 				[{value: 40, desc: "+{0}% Cold Resistance", category: "Gribbler - Temperature"}, {value: -20, desc: "+{0}% Heat Resistance", category: "Gribbler - Temperature"}],
 				[{value: 60, desc: "+{0}% Cold Resistance", category: "Gribbler - Temperature"}, {value: -20, desc: "+{0}% Heat Resistance", category: "Gribbler - Temperature"}],
 			],
-			position: [3, 0.0],
+			position: [2, 0.0],
 			imageName: "Companion/T_Talent_WoolyZebra_ColdResistAura",
 		},
 		{
@@ -95,7 +95,7 @@ export const gribblerTree = {
 				[{value: 30, desc: "+{0}% Health Regeneration", category: "Gribbler - Health"}],
 				[{value: 60, desc: "+{0}% Health Regeneration", category: "Gribbler - Health"}],
 			],
-			position: [3, 2.0],
+			position: [2, 2.0],
 			imageName: "Companion/T_Talent_Base_HealthRegeneration",
 		},
 		{
@@ -106,7 +106,7 @@ export const gribblerTree = {
 			benefits: [
 				[{value: 1, desc: "Gribbler creature identity talent.", category: "Gribbler - Flag"}],
 			],
-			position: [3, 4.0],
+			position: [2, 4.0],
 			imageName: "Companion/T_Talent_Base_TundraMonkey",
 		},
 		{
@@ -120,7 +120,7 @@ export const gribblerTree = {
 				[{value: 1, desc: "Can Use Stick in Combat", category: "Gribbler - Combat"}, {value: 150, desc: "+{0}% Stick Damage", category: "Gribbler - Combat"}],
 				[{value: 1, desc: "Can Use Stick in Combat", category: "Gribbler - Combat"}, {value: 250, desc: "+{0}% Stick Damage", category: "Gribbler - Combat"}],
 			],
-			position: [3, 6.0],
+			position: [2, 6.0],
 			imageName: "Companion/T_Talent_TundraMonkey_useStick",
 		},
 		{
@@ -133,7 +133,7 @@ export const gribblerTree = {
 				[{value: 2, desc: "+{0} Tundra Monkey Debuffs Applied", category: "Gribbler - Combat"}],
 				[{value: 3, desc: "+{0} Tundra Monkey Debuffs Applied", category: "Gribbler - Combat"}],
 			],
-			position: [4, 8.0],
+			position: [3, 8.0],
 			imageName: "Companion/T_Talent_TundraMonkey_RandomDebuff",
 		},
 		{
@@ -147,7 +147,7 @@ export const gribblerTree = {
 				[{value: -10, desc: "+{0}% Food Consumption", category: "Gribbler - Upkeep"}],
 				[{value: -20, desc: "+{0}% Food Consumption", category: "Gribbler - Upkeep"}],
 			],
-			position: [5, 4.0],
+			position: [3, 4.0],
 			imageName: "Companion/T_Talent_Base_ReducedFoodConsumption",
 		},
 		{
@@ -161,7 +161,7 @@ export const gribblerTree = {
 				[{value: 8, desc: "+{0} Physical Resistance", category: "Gribbler - Resistance"}],
 				[{value: 15, desc: "+{0} Physical Resistance", category: "Gribbler - Resistance"}],
 			],
-			position: [6, 0.0],
+			position: [4, 0.0],
 			imageName: "Companion/T_Talent_Base_DamageReduction",
 		},
 		{
@@ -174,7 +174,7 @@ export const gribblerTree = {
 				[{value: 60, desc: "+{0}% chance to cause Slow", category: "Gribbler - Combat"}],
 				[{value: 100, desc: "+{0}% chance to cause Slow", category: "Gribbler - Combat"}],
 			],
-			position: [6, 4.0],
+			position: [4, 4.0],
 			imageName: "Companion/T_Talent_Wolf_SlowOnHit",
 		},
 		{
@@ -188,7 +188,7 @@ export const gribblerTree = {
 				[{value: 12, desc: "+{0}% Fruit and Vegetable Modifier Effectiveness", category: "Gribbler - Modifiers"}],
 				[{value: 15, desc: "+{0}% Fruit and Vegetable Modifier Effectiveness", category: "Gribbler - Modifiers"}, {value: 1, desc: "+{0} Space in Stomach", category: "Gribbler - Modifiers"}],
 			],
-			position: [6, 8.0],
+			position: [4, 8.0],
 			imageName: "Companion/T_Talent_Base_FoodSlot",
 		},
 	]),

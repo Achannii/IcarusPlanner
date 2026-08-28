@@ -27,6 +27,8 @@ import InfoDialog from './components/infoDialog.tsx';
 import {
     buildShareUrl,
     calculatePointsSpent,
+    cleanSelectedBonusTalents,
+    cleanTalentPoints,
     importFromUrlSearch,
     isVersionMismatch
 } from './utils/exportImport';
@@ -37,6 +39,7 @@ import ImportExportButtons from "./components/importExportButtons.tsx";
 import CategoryRibbon from "./components/categoryRibbon.tsx";
 import ConfirmDialog from "./components/confirmDialog.tsx";
 import CreatureBloodlineOverlay from "./components/creatureBloodlineOverlay.tsx";
+import WhatsNewDialog from "./components/whatsNewDialog.tsx";
 import '@fontsource/barlow';
 import '@fontsource/tomorrow';
 import { getPointsSpentInPool, getPointsSpentInTree } from "./utils/pointsSpent.ts";
@@ -60,6 +63,17 @@ const CREATURE_CATEGORIES = new Set<Categories>([
     Categories.Pets,
     Categories.Livestock,
 ]);
+
+const RESPONSIVE_DESIGN_WIDTH = 2400;
+const MIN_APP_SCALE = 0.5;
+
+function getResponsiveAppScale(): number {
+    if (typeof window === 'undefined') {
+        return 1;
+    }
+
+    return Math.min(1, Math.max(MIN_APP_SCALE, window.innerWidth / RESPONSIVE_DESIGN_WIDTH));
+}
 
 function getTreeGridColumns(selectedCategory: Categories | null) {
     switch (selectedCategory) {
@@ -109,7 +123,35 @@ function getBonusTalentTotal(selectedBonuses: BonusTalentSelections): number {
     }, 0);
 }
 
+function createPlannerStateFingerprint(
+    talentPoints: Record<string, Record<string, number>>,
+    characterLevel: number,
+    selectedBonusTalents: BonusTalentSelections,
+): string {
+    const sortedTalentPoints = Object.fromEntries(
+        Object.entries(cleanTalentPoints(talentPoints))
+            .sort(([left], [right]) => left.localeCompare(right))
+            .map(([treeKey, treeTalents]) => [
+                treeKey,
+                Object.fromEntries(
+                    Object.entries(treeTalents).sort(([left], [right]) => left.localeCompare(right))
+                ),
+            ])
+    );
+    const sortedBonusTalents = Object.fromEntries(
+        Object.entries(cleanSelectedBonusTalents(selectedBonusTalents))
+            .sort(([left], [right]) => left.localeCompare(right))
+    );
+
+    return JSON.stringify({
+        talentPoints: sortedTalentPoints,
+        characterLevel,
+        selectedBonusTalents: sortedBonusTalents,
+    });
+}
+
 export default function TalentTreeApp() {
+    const [appScale, setAppScale] = useState(getResponsiveAppScale);
     const [selectedCategory, setSelectedCategory] = useState<Categories | null>(Categories.Survival);
     const [selectedTree, setSelectedTree] = useState<keyof typeof Trees | null>(null);
     const [talentPoints, setTalentPoints] = useState<Record<string, Record<string, number>>>({});
@@ -123,12 +165,24 @@ export default function TalentTreeApp() {
     const [confirmResetAllOpen, setConfirmResetAllOpen] = useState(false);
     const [treeToReset, setTreeToReset] = useState<keyof typeof Trees | null>(null);
     const [infoOpen, setInfoOpen] = useState(false);
+    const [whatsNewRequestToken, setWhatsNewRequestToken] = useState(0);
     const [exportDialogOpen, setExportDialogOpen] = useState(false);
     const [importDialogOpen, setImportDialogOpen] = useState(false);
     const [saveDialogOpen, setSaveDialogOpen] = useState(false);
     const [importText, setImportText] = useState('');
     const [exportText, setExportText] = useState('');
     const [blockingTalents, setBlockingTalents] = useState<Set<string>>(new Set());
+    const [activeSavedBuild, setActiveSavedBuild] = useState<{
+        id: string;
+        fingerprint: string;
+    } | null>(null);
+
+    useEffect(() => {
+        const updateAppScale = () => setAppScale(getResponsiveAppScale());
+
+        window.addEventListener('resize', updateAppScale);
+        return () => window.removeEventListener('resize', updateAppScale);
+    }, []);
     const hasImportedRef = useRef(false);
 
     const bonusTalents = useMemo(
@@ -138,6 +192,28 @@ export default function TalentTreeApp() {
 
     const generalCap = getGeneralCap(characterLevel, bonusTalents);
     const soloCap = getSoloCap(characterLevel);
+    const currentStateFingerprint = useMemo(
+        () => createPlannerStateFingerprint(talentPoints, characterLevel, selectedBonusTalents),
+        [talentPoints, characterLevel, selectedBonusTalents]
+    );
+    const isActiveSavedBuildModified =
+        !!activeSavedBuild && activeSavedBuild.fingerprint !== currentStateFingerprint;
+
+    const activateSavedBuild = (
+        id: string,
+        buildTalentPoints: Record<string, Record<string, number>>,
+        buildCharacterLevel: number,
+        buildBonusTalents: BonusTalentSelections,
+    ) => {
+        setActiveSavedBuild({
+            id,
+            fingerprint: createPlannerStateFingerprint(
+                buildTalentPoints,
+                buildCharacterLevel,
+                buildBonusTalents,
+            ),
+        });
+    };
 
     useEffect(() => {
         (window as any).setBlockingTalents = setBlockingTalents;
@@ -284,16 +360,28 @@ export default function TalentTreeApp() {
     return (
         <Box
             sx={{
-              minHeight: '100vh',
-              backgroundImage: 'url(/images/splash.webp)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
+                minHeight: '100vh',
+                position: 'relative',
+                backgroundColor: '#0b0b0b',
+                '&::before': {
+                    content: '""',
+                    position: 'fixed',
+                    inset: 0,
+                    zIndex: 0,
+                    pointerEvents: 'none',
+                    backgroundImage: 'url(/images/splash.webp)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                },
             }}
         >
             <Box
                 sx={{
+                    position: 'relative',
+                    zIndex: 1,
                     width: '100%',
+                    zoom: appScale,
                     minWidth: 0,
                     display: 'flex',
                     justifyContent: 'center',
@@ -351,6 +439,15 @@ export default function TalentTreeApp() {
                             snackbar={{ setMessage: setSnackbarMessage, setOpen: () => {} }}
                             saveDialogOpen={saveDialogOpen}
                             setSaveDialogOpen={setSaveDialogOpen}
+                            activeBuildId={activeSavedBuild?.id ?? null}
+                            activeBuildModified={isActiveSavedBuildModified}
+                            onBuildLoaded={activateSavedBuild}
+                            onBuildSaved={(id) => {
+                                setActiveSavedBuild({ id, fingerprint: currentStateFingerprint });
+                            }}
+                            onBuildDeleted={(id) => {
+                                setActiveSavedBuild(prev => prev?.id === id ? null : prev);
+                            }}
                         />
                     </Box>
 
@@ -386,6 +483,7 @@ export default function TalentTreeApp() {
                                     setTalentPoints({});
                                     setTalentPointsSpent({});
                                     setCharacterLevel(DEFAULT_CHARACTER_LEVEL);
+                                    setActiveSavedBuild(null);
                                     clearGuidance();
                                     setSnackbarMessage("All points have been reset.");
                                 }}
@@ -411,6 +509,7 @@ export default function TalentTreeApp() {
                                 exportText={exportText}
                                 setExportText={setExportText}
                                 onOpenSaveDialog={() => setSaveDialogOpen(true)}
+                                onImportComplete={() => setActiveSavedBuild(null)}
                             />
                         </Box>
 
@@ -622,8 +721,6 @@ export default function TalentTreeApp() {
                             <Box
                                 sx={{
                                     width: '100%',
-                                    overflowX: 'auto',
-                                    overflowY: 'hidden',
                                     pb: 1,
                                     mt: -0.15,
                                 }}
@@ -645,9 +742,12 @@ export default function TalentTreeApp() {
                                         const isCreatureTree = CREATURE_CATEGORIES.has(treeCategory);
                                         const isPlayerTree = !isCreatureTree;
                                         const isStandardizedPlayerPanel = isPlayerTree && treeKey !== 'Solo';
+										const pointsSpentInCurrentTree = talentPointsSpent[treeKey] || 0;
 										const isPetOrLivestock =
   										  treeCategory === Categories.Pets ||
   										  treeCategory === Categories.Livestock;
+                                        const isCompactCreaturePanel = isPetOrLivestock;
+                                        const hasNarrowCreatureTree = treeKey === 'Pig';
                                         const isSoloTree = treeKey === 'Solo';
                                         const backgroundPath = getTreeBackgroundPath(treeKey);
 
@@ -671,24 +771,32 @@ export default function TalentTreeApp() {
                                                     overflow: 'hidden',
                                                     width: isStandardizedPlayerPanel
                                                         ? '100%'
+                                                        : isCompactCreaturePanel
+                                                            ? hasNarrowCreatureTree ? 632 : 'max-content'
                                                         : isPetOrLivestock
                                                             ? 635
                                                             : 'max-content',
 
                                                     maxWidth: isStandardizedPlayerPanel
                                                         ? 550
+                                                        : isCompactCreaturePanel
+                                                            ? hasNarrowCreatureTree ? 632 : 'none'
                                                         : isPetOrLivestock
                                                             ? 635
                                                             : 'none',
 
                                                     minHeight: isStandardizedPlayerPanel
                                                         ? 1000
+                                                        : isCompactCreaturePanel
+                                                            ? 'auto'
                                                         : isPetOrLivestock
                                                             ? 825
                                                             : 'auto',
 
                                                     maxHeight: isStandardizedPlayerPanel
                                                         ? 1000
+                                                        : isCompactCreaturePanel
+                                                            ? 'none'
                                                         : isPetOrLivestock
                                                             ? 825
                                                             : 'none',
@@ -790,6 +898,8 @@ export default function TalentTreeApp() {
                                                                         }}
                                                                     >
                                                                         {Trees[treeKey].name}
+                                                                        {isStandardizedPlayerPanel &&
+                                                                            ` — ${pointsSpentInCurrentTree} ${pointsSpentInCurrentTree === 1 ? 'pt' : 'pts'}`}
                                                                     </Typography>
                                                                 </Box>
 
@@ -1019,7 +1129,15 @@ export default function TalentTreeApp() {
                     </Alert>
                 </Snackbar>
 
-                <InfoDialog open={infoOpen} onClose={() => setInfoOpen(false)} />
+                <InfoDialog
+                    open={infoOpen}
+                    onClose={() => setInfoOpen(false)}
+                    onShowWhatsNew={() => {
+                        setInfoOpen(false);
+                        setWhatsNewRequestToken(previous => previous + 1);
+                    }}
+                />
+                <WhatsNewDialog reopenRequestToken={whatsNewRequestToken} />
             </Box>
         </Box>
     );

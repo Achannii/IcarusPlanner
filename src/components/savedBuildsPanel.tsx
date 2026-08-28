@@ -48,6 +48,16 @@ interface SavedBuildsPanelProps {
     };
     saveDialogOpen: boolean;
     setSaveDialogOpen: (val: boolean) => void;
+    activeBuildId: string | null;
+    activeBuildModified: boolean;
+    onBuildLoaded: (
+        id: string,
+        talentPoints: Record<string, Record<string, number>>,
+        characterLevel: number,
+        selectedBonusTalents: Record<string, boolean>,
+    ) => void;
+    onBuildSaved: (id: string) => void;
+    onBuildDeleted: (id: string) => void;
 }
 
 function getLoadScopeText(scope: SaveScope): string {
@@ -74,6 +84,11 @@ export default function SavedBuildsPanel({
     snackbar,
     saveDialogOpen,
     setSaveDialogOpen,
+    activeBuildId,
+    activeBuildModified,
+    onBuildLoaded,
+    onBuildSaved,
+    onBuildDeleted,
 }: SavedBuildsPanelProps) {
     const [savedBuilds, setSavedBuilds] = useState<SavedBuild[]>([]);
     const [buildName, setBuildName] = useState('');
@@ -157,6 +172,7 @@ export default function SavedBuildsPanel({
             refreshBuilds();
             setSaveDialogOpen(false);
             setOverwriteTarget(null);
+            onBuildSaved(saved.id);
 
             snackbar.setMessage(
                 isStillOverwriting
@@ -200,6 +216,12 @@ export default function SavedBuildsPanel({
         setTalentPointsSpent(calculatePointsSpent(importedPoints));
         setCharacterLevel(loadTarget.data.characterLevel ?? DEFAULT_CHARACTER_LEVEL);
         setSelectedBonusTalents(loadTarget.data.selectedBonusTalents ?? {});
+        onBuildLoaded(
+            loadTarget.id,
+            importedPoints,
+            loadTarget.data.characterLevel ?? DEFAULT_CHARACTER_LEVEL,
+            loadTarget.data.selectedBonusTalents ?? {},
+        );
 
         if (isVersionMismatch(loadTarget.data.gameVersion)) {
             snackbar.setMessage("Version mismatch. We'll match what we can, but review your Trees.");
@@ -215,6 +237,7 @@ export default function SavedBuildsPanel({
         if (!deleteTarget) return;
 
         deleteSavedBuild(deleteTarget.id);
+        onBuildDeleted(deleteTarget.id);
         refreshBuilds();
         snackbar.setMessage(`Deleted saved build: ${deleteTarget.name}`);
         snackbar.setOpen(true);
@@ -310,6 +333,7 @@ export default function SavedBuildsPanel({
                     ) : (
                         sortedBuilds.map((build) => {
                             const isPinned = build.pinned ?? false;
+                            const isActiveBuild = build.id === activeBuildId;
 
                             return (
                                 <Box
@@ -332,7 +356,11 @@ export default function SavedBuildsPanel({
                                             variant="body2"
                                             title={build.name}
                                             sx={{
-                                                color: '#d6d6d6',
+                                                color: isActiveBuild
+                                                    ? activeBuildModified
+                                                        ? 'warning.main'
+                                                        : 'success.light'
+                                                    : '#d6d6d6',
                                                 fontSize: '0.76rem',
                                                 lineHeight: 1,
                                                 whiteSpace: 'nowrap',

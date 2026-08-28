@@ -39,7 +39,7 @@ export const storcaTree = {
 			benefits: [
 				[{value: 1, desc: "+{0} Space in Stomach", category: "Storca - Modifiers"}],
 			],
-			position: [1, 4.0],
+			position: [0.5, 4.0],
 			imageName: "Cooking/Talent_Cooking_HealthSuperfood",
 		},
 		{
@@ -53,7 +53,7 @@ export const storcaTree = {
 				[{value: -10, desc: "+{0}% Food Consumption", category: "Storca - Upkeep"}, {value: 5, desc: "+{0}% Cold Resistance", category: "Storca - Temperature"}],
 				[{value: -20, desc: "+{0}% Food Consumption", category: "Storca - Upkeep"}, {value: 10, desc: "+{0}% Cold Resistance", category: "Storca - Temperature"}],
 			],
-			position: [2, 3.0],
+			position: [1, 2.5],
 			imageName: "Companion/T_Talent_Stomach_Cold",
 		},
 		{
@@ -67,7 +67,7 @@ export const storcaTree = {
 				[{value: -10, desc: "+{0}% Water Consumption", category: "Storca - Upkeep"}, {value: 5, desc: "+{0}% Heat Resistance", category: "Storca - Temperature"}],
 				[{value: -20, desc: "+{0}% Water Consumption", category: "Storca - Upkeep"}, {value: 10, desc: "+{0}% Heat Resistance", category: "Storca - Temperature"}],
 			],
-			position: [2, 5.0],
+			position: [1, 5.5],
 			imageName: "Companion/T_Talent_Stomach_Hot",
 		},
 		{
@@ -80,7 +80,7 @@ export const storcaTree = {
 				[{value: -10, desc: "+{0}% Animal Threat", category: "Storca - AI"}],
 				[{value: -25, desc: "+{0}% Animal Threat", category: "Storca - AI"}],
 			],
-			position: [3, 2.0],
+			position: [1.5, 1.25],
 			imageName: "Companion/T_Talent_Sneak",
 		},
 		{
@@ -94,7 +94,7 @@ export const storcaTree = {
 				[{value: 30, desc: "+{0} Frost Damage", category: "Storca - Combat"}],
 				[{value: 40, desc: "+{0} Frost Damage", category: "Storca - Combat"}],
 			],
-			position: [3, 6.0],
+			position: [1.5, 6.75],
 			imageName: "Companion/T_Talent_WoolyZebra_ColdDamageReduction",
 		},
 		{
@@ -105,7 +105,7 @@ export const storcaTree = {
 			benefits: [
 				[{value: 1, desc: "Grants Camouflage Aura", category: "Storca - Aura"}],
 			],
-			position: [4, 0.0],
+			position: [2, 0.0],
 			imageName: "Companion/T_Talent_Storca_Aura",
 		},
 		{
@@ -116,7 +116,7 @@ export const storcaTree = {
 			benefits: [
 				[{value: 1, desc: "Storca creature identity talent.", category: "Storca - Flag"}],
 			],
-			position: [4, 4.0],
+			position: [2, 4.0],
 			imageName: "Companion/T_Talent_Base_Storca",
 		},
 		{
@@ -129,7 +129,7 @@ export const storcaTree = {
 				[{value: 10, desc: "+{0}% chance to inflict Freeze", category: "Storca - Combat"}],
 				[{value: 25, desc: "+{0}% chance to inflict Freeze", category: "Storca - Combat"}],
 			],
-			position: [4, 8.0],
+			position: [2, 8.0],
 			imageName: "Companion/T_Talent_Ice",
 		},
 		{
@@ -142,7 +142,7 @@ export const storcaTree = {
 				[{value: 10, desc: "+{0}% Movement Speed", category: "Storca - Movement"}, {value: -10, desc: "+{0} Physical Resistance", category: "Storca - Resistance"}],
 				[{value: 15, desc: "+{0}% Movement Speed", category: "Storca - Movement"}, {value: -15, desc: "+{0} Physical Resistance", category: "Storca - Resistance"}],
 			],
-			position: [5, 2.0],
+			position: [2.5, 1.25],
 			imageName: "Companion/T_Talent_Horse_Speed",
 		},
 		{
@@ -156,7 +156,7 @@ export const storcaTree = {
 				[{value: 30, desc: "+{0}% Melee Damage", category: "Storca - Combat"}],
 				[{value: 60, desc: "+{0}% Melee Damage", category: "Storca - Combat"}],
 			],
-			position: [5, 6.0],
+			position: [2.5, 6.75],
 			imageName: "Companion/T_Talent_Base_CombatPetDamage",
 		},
 		{
@@ -170,7 +170,7 @@ export const storcaTree = {
 				[{value: 10, desc: "+{0}% Maximum Health", category: "Storca - Health"}],
 				[{value: 20, desc: "+{0}% Maximum Health", category: "Storca - Health"}],
 			],
-			position: [6, 4.0],
+			position: [3, 4.0],
 			imageName: "Companion/T_Talent_Base_Health",
 		},
 		{
@@ -183,7 +183,7 @@ export const storcaTree = {
 				[{value: 5, desc: "+{0} Physical Resistance", category: "Storca - Resistance"}],
 				[{value: 10, desc: "+{0} Physical Resistance", category: "Storca - Resistance"}],
 			],
-			position: [7, 3.0],
+			position: [4, 3.0],
 			imageName: "Companion/T_Talent_Base_DamageReduction",
 		},
 		{
@@ -197,7 +197,7 @@ export const storcaTree = {
 				[{value: 30, desc: "+{0}% Health Regeneration", category: "Storca - Health"}],
 				[{value: 60, desc: "+{0}% Health Regeneration", category: "Storca - Health"}],
 			],
-			position: [7, 5.0],
+			position: [4, 5.0],
 			imageName: "Companion/T_Talent_Base_HealthRegeneration",
 		},
 	]),

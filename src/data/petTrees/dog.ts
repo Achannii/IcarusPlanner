@@ -13,7 +13,7 @@ export const dogTree = {
 				[{value: 8, desc: "+{0}% Movement Speed", category: "Dog - Movement"}],
 				[{value: 15, desc: "+{0}% Movement Speed", category: "Dog - Movement"}, {value: 1, desc: "Nearby Allies have reduced Oxygen Consumption", category: "Dog - Modifiers"}],
 			],
-			position: [6, 4.0],
+			position: [4, 4.0],
 			imageName: "Companion/T_Talent_Wolf_SlowOnHit",
 		},
 		{
@@ -26,7 +26,7 @@ export const dogTree = {
 				[{value: 8, desc: "+{0} Coziness Bonus", category: "Dog - Modifiers"}],
 				[{value: 16, desc: "+{0} Coziness Bonus", category: "Dog - Modifiers"}, {value: 1, desc: "Teaches Fetch", category: "Dog - AI"}],
 			],
-			position: [3, 0.0],
+			position: [2, 0.0],
 			imageName: "Companion/T_Talent_Dog_Fetch",
 		},
 		{
@@ -52,7 +52,7 @@ export const dogTree = {
 				[{value: 15, desc: "{0}% Health Restored on Kill", category: "Dog - Modifiers"}],
 				[{value: 30, desc: "{0}% Health Restored on Kill", category: "Dog - Modifiers"}],
 			],
-			position: [4, 8.0],
+			position: [3, 8.0],
 			imageName: "Companion/T_Talent_Wolf_HealOnKill",
 		},
 		{
@@ -65,7 +65,7 @@ export const dogTree = {
 				[{value: 60, desc: "{0}% Chance to highlight target on hit", category: "Dog - Modifiers"}],
 				[{value: 100, desc: "{0}% Chance to highlight target on hit", category: "Dog - Modifiers"}],
 			],
-			position: [2, 8.0],
+			position: [1, 8.0],
 			imageName: "Companion/T_Talent_Wolf_HighlightTarget",
 		},
 		{
@@ -93,7 +93,7 @@ export const dogTree = {
 				[{value: -10, desc: "+{0}% Food Consumption", category: "Dog - Upkeep"}],
 				[{value: -20, desc: "+{0}% Food Consumption", category: "Dog - Upkeep"}],
 			],
-			position: [5, 4.0],
+			position: [3, 4.0],
 			imageName: "Companion/T_Talent_Base_ReducedFoodConsumption",
 		},
 		{
@@ -104,7 +104,7 @@ export const dogTree = {
 			benefits: [
 				[{value: 1, desc: "Can be specialized into aggressive combat roles or coziness bonus.", category: "Dog - Flag"}],
 			],
-			position: [3, 4.0],
+			position: [2, 4.0],
 			imageName: "Companion/T_Talent_Base_Dog",
 		},
 		{
@@ -118,7 +118,7 @@ export const dogTree = {
 				[{value: 30, desc: "+{0}% Melee Damage", category: "Dog - Melee DMG"}],
 				[{value: 60, desc: "+{0}% Melee Damage", category: "Dog - Melee DMG"}],
 			],
-			position: [3, 6.0],
+			position: [2, 6.0],
 			imageName: "Companion/T_Talent_Base_CombatPetDamage",
 		},
 		{
@@ -132,7 +132,7 @@ export const dogTree = {
 				[{value: 30, desc: "+{0}% Health Regeneration", category: "Dog - Health"}],
 				[{value: 60, desc: "+{0}% Health Regeneration", category: "Dog - Health"}],
 			],
-			position: [3, 2.0],
+			position: [2, 2.0],
 			imageName: "Companion/T_Talent_Base_HealthRegeneration",
 		},
 		{
@@ -146,7 +146,7 @@ export const dogTree = {
 				[{value: 12, desc: "+{0}% Fruit and Vegetable Modifier Effectiveness", category: "Dog - Misc"}],
 				[{value: 15, desc: "+{0}% Fruit and Vegetable Modifier Effectiveness", category: "Dog - Misc"}, {value: 1, desc: "+{0} Space in Stomach", category: "Dog - Character"}],
 			],
-			position: [6, 8.0],
+			position: [4, 8.0],
 			imageName: "Companion/T_Talent_Base_FoodSlot",
 		},
 		{
@@ -188,7 +188,7 @@ export const dogTree = {
 				[{value: 8, desc: "+{0} Physical Resistance", category: "Dog - Resistance"}],
 				[{value: 15, desc: "+{0} Physical Resistance", category: "Dog - Resistance"}],
 			],
-			position: [6, 0.0],
+			position: [4, 0.0],
 			imageName: "Companion/T_Talent_Base_DamageReduction",
 		},
 	]),
@@ -196,8 +196,8 @@ export const dogTree = {
 		{ start: "Metabolic Preservation", end: "Keen for Adventure" },
 		{ start: "Nurtured Recovery", end: "Well Trained" },
 		{ start: "Wild Fortitude", end: "Hunter's Mark" },
-		{ start: "Natural Ferocity", path: [[3, 8.0]], end: "Endless Hunger" },
-		{ start: "Natural Ferocity", path: [[3, 8.0]], end: "Coordinated Attacks" },
+		{ start: "Natural Ferocity", path: [[2, 8.0]], end: "Endless Hunger" },
+		{ start: "Natural Ferocity", path: [[2, 8.0]], end: "Coordinated Attacks" },
 		{ start: "Dog", end: "Wild Fortitude" },
 		{ start: "Dog", end: "Metabolic Preservation" },
 		{ start: "Dog", end: "Natural Ferocity" },
