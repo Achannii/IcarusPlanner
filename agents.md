@@ -8,6 +8,14 @@
 - Keep all changes narrowly scoped to the requested task.
 - Do not perform unsolicited refactors, cleanup, reformatting, or dependency updates.
 
+## Supplemental Project Context
+
+- Before beginning project work, look for `Codex_Content.local.md` in the repository root. If it exists, read it as supplemental project context.
+- `Codex_Content.local.md` is not authorization to implement documented backlog items.
+- Explicit user instructions take precedence over both the local context file and the repository state. When the local context conflicts with the current source or repository state, the current source and repository state take precedence.
+- If `Codex_Content.local.md` does not exist, continue normally without error and without requiring it.
+- After completing requested project work, evaluate whether the changes materially affect durable project context in `Codex_Content.local.md`. If an update is warranted, propose the specific changes and request approval before modifying it. Do not update it for trivial implementation details or routine changes that do not materially affect project knowledge.
+
 ## Git Operations
 
 - Never commit, push, merge, rebase, or create, delete, or switch branches unless the user explicitly requests that operation.
